@@ -1,0 +1,10 @@
+mkdir
+mkdir -p
+rmdir
+rm -rf
+cp -r 
+mv -r 
+touch
+cat > <file_name>  --> ctrl+d
+history
+echo

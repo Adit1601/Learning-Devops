@@ -1,0 +1,5 @@
+Any linux system has 1 root user and 0 or more regular users. 
+There are some locations and commands which can only be executed by root user. 
+If a normal user tries to run those commands then it will get permission denied error.
+To unblock regular users, we need to add them to sudoers file - /etc/sudoers.
+Once this is done, normal user can user keyword "sudo" before the command to temporarily elevate his permissions, in this case, regular user would have to enter its password after which commands executes. 
