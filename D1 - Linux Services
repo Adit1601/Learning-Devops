@@ -1,0 +1,31 @@
+
+We can configure an app as a systemd service. All systemd services can be managed easily by systemctl commands. 
+All systemd services are generally present at /etc/systemd/system/
+To configure an app as a systemctl service, we need to create an app.service file. 
+app.service file 
+
+[Units]
+Description = This is description.
+
+[Service]
+ExecStart=/usr/sbin/gdm3  - code to run your app.
+ExecStartPre=/usr/share/gdm/generate-config.sh - this script will before the app starts (You can specify dependencies required here)
+ExecStartPost=/usr/share/gdm/generate-config.sh - this script runs after the app got started. 
+Restart=always - to specify the application to automatically restart once it crashes.
+
+[Install]
+WantedBy=multi-user.target - this means that we are configuring that our app will run after a service.
+
+Command to start or stop an app which is configured as systemd service 
+systemctly start app
+systemctly stop app
+
+Command to start an app automatically everytime machine boots up
+systemctly enable app
+To disable this auto startup mechanism on bootup
+systemctly disable app
+
+To check the status of the service
+systemctly status app
+
+systemctl deamon-reload
