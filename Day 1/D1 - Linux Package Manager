@@ -1,0 +1,34 @@
+Help you install varioius softwares on linux systems
+
+RPM(red hat package manager) based package manager
+
+a software is packaged into a bundle with extension of .rpm
+
+rpm -i <package_name>
+rpm -e <package_name>
+rpm -q <package_name> - get details about installed package.
+
+RPM does not install the dependent libraries. If I install ansible using rpm, then it will only install ansible. If ansible requires python to run, then ansible will not install python. 
+
+This is where YUM comes in.
+High level package manager which uses rpm underneath
+
+yum install ansible - ansible and all dependent packages.
+
+yum searches software repositories that act as warehouses containing many rpm package files. 
+
+These repositories can be local or at remote location or available publicly on internet.
+
+when we try to install a package, yum searches these repositories, find the required packages and install all of them in correct order.
+
+every OS comes bundlend with lot of pre configured repositories which we can use for lot of commonly used softwares. Hence we might not need to edit the list of repositories.
+
+/etc/yum/repos.d
+
+yum repolist
+ls /etc/yum.repos.d
+ls /etc/yum.repos.d/
+yum list - to list installed packages
+yum remove <package_name>
+yum --showduplicates list <package_name>
+yum install <package_name>-<version>
