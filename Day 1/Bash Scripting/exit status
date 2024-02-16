@@ -1,0 +1,28 @@
+All command return an exit status, 0-255
+By default shell script return the exit status of last command in the script
+The exit status of a shell script is the exit status of the last command executed in the shell script. 
+To override this behavior, use the exit command followed by the desired exit status. All scripts and command have an exit status. 
+Exit statuses are integers that fall between 0 and 255. An exit status of zero (0) indicates success. A non-zero (1-255) exit status indicates failure.
+The "return" command returns from a shell function. The "exit" command allows you to specify an exit status. Example: "exit 1". 
+evey command have their exit status code - we can get info about commands exit status by looking at their man page. 
+special variable contains the value of the exit status of the previously executed command -  "$?"
+
+hence in a bash script as well, each command will have exit status code. 
+We can define exit code to bash script as a whole
+exit keyword is used. for eg. 
+
+#!/bin/bash
+HOST=google.com
+ping -c 1 ${HOST}
+if ["$?" -ne 0]
+then
+    echo "${HOST} is unrecheable"
+fi
+
+
+&&  - command after '&&' will run only if exist status of previous command was 0
+||  - here next command will only be ran if and only if the first command returns non zero exit code.
+we can chain commands via semicolon (;) as well. Semicall doesnt care about the previous command got succeed or not. 
+It will execute all the commands in the chain
+
+When commands are separated by a semicolon (;), they are executed in order, regardless of the exit status of the previous command(s). 
