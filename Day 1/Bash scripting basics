@@ -1,1 +1,45 @@
+shebang #!/bin/bash - where /bin/bash is path to interpreter
+The first line of a shell script typically starts with a shebang, followed by the path to an interpreter that will be used to execute the  commands in the script.
+The commands in a script will be executed using the current shell of the user executing that script if a shebang followed by a path to an interpreter are not specified on the first line of the script.
 
+variables
+A variable may be assigned a value using the form of name=[value]. It is invalid syntax to use a space before and/or after the equals sign.
+There are two forms of command substitution: $(command) and `command`. Even though the newer format of $(command) is considered the current best practice, `command` is still valid syntax.
+Therefore both options are correct.
+
+test expression - run command "help test"
+[condition-to-test-for]  - If true he status 0 orelse status 1
+-e - if file exists
+      -d FILE        True if file is a directory.
+      -f FILE        True if file exists and is a regular file.
+      -r FILE        True if file is readable by you.
+      -w FILE        True if the file is writable by you.
+      -x FILE        True if the file is executable by you.
+      -z STRING      True if string is empty.
+      -s FILE        True if file exists and is not empty.
+      -n STRING      True if string is not empty.
+      STRING1 = STRING2 True if the strings are equal.
+      STRING1 != STRING2 True if the strings are not equal.
+      arg1 OP arg2   Arithmetic tests.  OP is one of -eq, -ne, -lt, -le, -gt, or -ge
+if statement
+if [ condition ]
+then
+    echo ""
+elif [ condition ]
+then
+    echo ""
+else
+    echo ""
+fi
+
+for loop
+for x in a b c
+do
+  echo ""
+done
+
+command line arguments - positional parameters $0, $1, $2...
+$0 is the name of the script itself,
+$@ - to access all the items starting from $1 on command line 
+reading input - read command
+comments
